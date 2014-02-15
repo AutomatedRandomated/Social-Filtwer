@@ -23,6 +23,9 @@ api = twitter.Api(consumer_key='<redacted>',
 				  access_token_key='<redacted>',
 				  access_token_secret='<redacted>')
 
+def returnFormattedTweet(format):
+	print format.GetText()
+
 while True:
 		menu1select = raw_input("1. You\n2. Others\n> ")
 		if menu1select in ["1","2"]: break
@@ -41,15 +44,18 @@ if menu1select == "1":
 
 	elif "2" == menu2select:
 		hometweet = api.GetHomeTimeline()
-		for i in (0, len(hometweet)):
-			print hometweet[i]
+		for singleTweet in range(1,len(hometweet)):
+			print hometweet[singleTweet]
+		print hometweet
+			# returnFormattedTweet(singleTweet)
+
+		# print hometweet.index()
+		# print hometweet[1]
+		# print len(hometweet)
 
 	else:
 		keyword = raw_input("keyword: ")
 
-def returnFormattedTweet(tweetid):
-	print [tweet.GetName]
-	print 
 
 
 #Additional functionality ID
